@@ -1,4 +1,4 @@
-name: Auto Deploy to VPS
+name: Auto Deploy Bot Lokal
 
 on:
   push:
@@ -7,16 +7,25 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    # Ganti dari 'ubuntu-latest' ke 'self-hosted'
+    runs-on: self-hosted 
+
     steps:
-      - name: Execute Remote SSH Commands
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SSH_KEY }}
-          script: |
-            cd ~/tesbotwa
-            git pull origin main
-            npm install --production
-            pm2 restart botwapanelweb
+      # Langkah 1: GitHub akan mengirim kode terbaru ke folder Runner
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      # Langkah 2: Jalankan perintah langsung di server lokal
+      - name: Install & Restart
+        run: |
+          # Masuk ke folder proyek yang dikelola admin
+          cd /home/admin/tesbotwa
+          
+          # Ambil update terbaru dari GitHub
+          git pull origin main
+          
+          # Install library baru jika ada
+          npm install --production
+          
+          # Restart proses PM2 spesifik kamu
+          pm2 restart botwapanelweb
