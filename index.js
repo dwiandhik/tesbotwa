@@ -419,7 +419,8 @@ async function startBot() {
         // 1. Cari di database publik
         findKey = getDB().find(item => {
             const keywords = item.key.split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
-            const match = keywords.some(kw => userWords.includes(kw));
+            // Gunakan text.includes() untuk memungkinkan kata kunci multi-kata
+            const match = keywords.some(kw => text.includes(kw));
             if (match) console.log(`[Pencarian] Cocok di DB Publik dengan kata kunci: "${item.key}"`);
             return match;
         });
@@ -429,7 +430,7 @@ async function startBot() {
             console.log('[Pencarian] Tidak cocok di DB Publik, mencoba DB Owner...');
             findKey = getOwnerDB().find(item => {
                 const keywords = item.key.split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
-                const match = keywords.some(kw => userWords.includes(kw));
+                const match = keywords.some(kw => text.includes(kw));
                 if (match) console.log(`[Pencarian] Cocok di DB Owner dengan kata kunci: "${item.key}"`);
                 return match;
             });
