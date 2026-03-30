@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DW Cellkom - Dashboard</title>
+    <title>Owner Reply - DW Cellkom</title>
     <script src="/socket.io/socket.io.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -24,8 +24,8 @@
     <div class="card">
         <h2>DW Cellkom</h2>
         <div class="nav">
-            <a href="/" class="active">Auto Reply</a>
-            <a href="/owner-keywords">Owner Reply</a>
+            <a href="/">Auto Reply</a>
+            <a href="/owner-keywords" class="active">Owner Reply</a>
             <a href="/reminder">Reminder</a>
             <a href="/update">Update Data</a>
             <a href="/broadcast">Broadcast</a>
@@ -37,8 +37,9 @@
         <button id="ctrl-btn" class="btn">...</button>
 
         <div style="text-align: left; margin-top: 25px;" id="form-container">
-            <h3 id="form-title">Tambah Balasan</h3>
-            <form id="keyword-form" action="/api/keywords" method="POST" enctype="multipart/form-data">
+            <h3 id="form-title">Tambah Balasan Owner</h3>
+            <p style="font-size: 12px; color: #666; margin-top: -10px; margin-bottom: 15px;">Balasan di halaman ini hanya akan aktif jika dikirim oleh nomor Owner.</p>
+            <form id="keyword-form" action="/api/owner-keywords" method="POST" enctype="multipart/form-data">
                 <input type="text" name="key" placeholder="Keyword (koma untuk banyak)" required>
                 <textarea name="response" placeholder="Balasan bot..." rows="3" required></textarea>
                 <input type="file" name="image" accept="image/*">
@@ -46,7 +47,7 @@
                 <button type="button" id="cancel-edit-btn" class="btn" style="background: #6b7280; display: none; margin-top: 5px;">BATAL EDIT</button>
             </form>
 
-            <h3 style="margin-top: 30px;">Daftar Balasan</h3>
+            <h3 style="margin-top: 30px;">Daftar Balasan Owner</h3>
             <div id="keyword-list"></div>
         </div>
     </div>
@@ -64,7 +65,7 @@
             fetch('/api/status').then(res => res.json()).then(data => updateUI(data.status, data.connected));
         }
         function loadKeys() {
-            fetch('/api/keywords').then(res => res.json()).then(data => {
+            fetch('/api/owner-keywords').then(res => res.json()).then(data => {
                 document.getElementById('keyword-list').innerHTML = data.map((item, i) => `
                     <div class="keyword-item">
                         <div style="text-align:left;">
@@ -72,7 +73,7 @@
                         </div>
                         <div style="display: flex; align-items: center;">
                             <a href="#" onclick="event.preventDefault(); editKey(${i})" style="color:#3b82f6; text-decoration:none; font-weight:700; font-size:12px; margin-right: 10px;">Edit</a>
-                            <a href="/api/keywords/delete/${i}" style="color:var(--danger); text-decoration:none; font-weight:700; font-size:12px;">Hapus</a>
+                            <a href="/api/owner-keywords/delete/${i}" style="color:var(--danger); text-decoration:none; font-weight:700; font-size:12px;">Hapus</a>
                         </div>
                     </div>
                 `).join('');
@@ -80,14 +81,14 @@
         }
 
         async function editKey(index) {
-            const res = await fetch(`/api/keyword/${index}`);
+            const res = await fetch(`/api/owner-keyword/${index}`);
             if (!res.ok) return alert('Gagal memuat keyword.');
             const data = await res.json();
             
             keywordForm.querySelector('input[name="key"]').value = data.key;
             keywordForm.querySelector('textarea[name="response"]').value = data.response;
-            keywordForm.action = `/api/keywords/edit/${index}`;
-            formTitle.innerText = 'Edit Balasan';
+            keywordForm.action = `/api/owner-keywords/edit/${index}`;
+            formTitle.innerText = 'Edit Balasan Owner';
             keywordForm.querySelector('button[type="submit"]').innerText = 'UPDATE KEYWORD';
             cancelEditBtn.style.display = 'block';
             document.getElementById('form-container').scrollIntoView({ behavior: 'smooth' });
@@ -95,8 +96,8 @@
 
         function resetForm() {
             keywordForm.reset();
-            keywordForm.action = '/api/keywords';
-            formTitle.innerText = 'Tambah Balasan';
+            keywordForm.action = '/api/owner-keywords';
+            formTitle.innerText = 'Tambah Balasan Owner';
             keywordForm.querySelector('button[type="submit"]').innerText = 'SIMPAN KEYWORD';
             cancelEditBtn.style.display = 'none';
         }

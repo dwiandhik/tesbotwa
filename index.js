@@ -28,6 +28,7 @@ const port = 3777;
 // --- CONFIGURATION ---
 const ADMIN_USER = "admin";
 const ADMIN_PASS = "admin123"; 
+const OWNER_NUMBER = "6285293958886"; // Ganti dengan nomor WhatsApp Anda (format 62, tanpa + atau spasi)
 const ID_GRUP_REMINDER = "120363405900078596@g.us"; 
 
 const SPREADSHEET_ID_1 = '1ydTqcG1Vg9EZFJ2boOjCekL2Xw4RYOe-haHCXxgmlX0'; // XL
@@ -70,6 +71,12 @@ const dbPath = './database.json';
 if (!fs.existsSync(dbPath)) fs.writeFileSync(dbPath, '[]');
 const getDB = () => JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
 const saveDB = (data) => fs.writeFileSync(dbPath, JSON.stringify(data, null, 2));
+
+const ownerDbPath = './owner_database.json';
+if (!fs.existsSync(ownerDbPath)) fs.writeFileSync(ownerDbPath, '[]');
+const getOwnerDB = () => JSON.parse(fs.readFileSync(ownerDbPath, 'utf-8'));
+const saveOwnerDB = (data) => fs.writeFileSync(ownerDbPath, JSON.stringify(data, null, 2));
+
 
 const logPath = './activity_log.json';
 if (!fs.existsSync(logPath)) fs.writeFileSync(logPath, '[]');
@@ -381,30 +388,44 @@ async function startBot() {
     botSock.ev.on('messages.upsert', async m => {
         const msg = m.messages[0];
         if (!msg.message || msg.key.fromMe) return;
+
         const from = jidNormalizedUser(msg.key.remoteJid);
+        if (from.endsWith('@g.us')) return; // Abaikan pesan dari grup untuk auto-reply
+
+        const isFromOwner = from.startsWith(OWNER_NUMBER);
         const text = (msg.message.conversation || msg.message.extendedTextMessage?.text || "").toLowerCase().trim();
+        const userWords = text.split(/\s+/);
 
         if (text === '.cek') {
-            const d0 = await scanProvider(SPREADSHEET_ID_1, 'Master List Update', 'Master List', 'EXP'); // Tambahkan scan Master List
+            if (!isFromOwner) return;
+            const d0 = await scanProvider(SPREADSHEET_ID_1, 'Master List Update', 'Master List', 'EXP');
             const d1 = await scanProvider(SPREADSHEET_ID_1, 'Akrab List Update', 'XL', 'EXP'); 
             const d2 = await scanProvider(SPREADSHEET_ID_2, 'Tsel Update', 'TELKOMSEL (Tsel Update)', 'Exp');
-            const all = [...d0, ...d1, ...d2]; // Gabungkan semua hasil scan
+            const all = [...d0, ...d1, ...d2];
             if (all.length === 0) return await botSock.sendMessage(from, { text: "✅ Aman, tidak ada data habis hari ini." });
             let res = `📢 *LAPORAN CEK MANUAL*\n\n`;
             all.forEach((i, idx) => res += `${idx+1}. [${i.provider}] ${i.nama} - ${i.ket}\n`);
             await botSock.sendMessage(from, { text: res });
             return;
         }
+        
+        let findKey = null;
 
-        const db = getDB();
-        const findKey = db.find(item => {
-            // Memecah kata kunci dari database, membersihkannya, dan memfilter jika ada string kosong
+        // 1. Cari di database publik
+        findKey = getDB().find(item => {
             const keywords = item.key.split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
-            // Memecah pesan pengguna menjadi array kata-kata
-            const userWords = text.split(/\s+/);
             return keywords.some(kw => userWords.includes(kw));
         });
-        if (findKey && !from.endsWith('@g.us')) {
+
+        // 2. Jika tidak ketemu dan pengirim adalah owner, cari di database owner
+        if (!findKey && isFromOwner) {
+            findKey = getOwnerDB().find(item => {
+                const keywords = item.key.split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
+                return keywords.some(kw => userWords.includes(kw));
+            });
+        }
+
+        if (findKey) {
             const now = Date.now();
             if (cooldowns.has(from) && (now < cooldowns.get(from) + 3000)) return;
             cooldowns.set(from, now);
@@ -443,6 +464,7 @@ app.post('/login', (req, res) => {
 });
 
 app.get('/', checkAuth, (req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+app.get('/owner-keywords', checkAuth, (req, res) => res.sendFile(path.join(__dirname, 'owner-keywords.html')));
 app.get('/reminder', checkAuth, (req, res) => res.sendFile(path.join(__dirname, 'reminder.html')));
 app.get('/update', checkAuth, (req, res) => res.sendFile(path.join(__dirname, 'update.html')));
 app.get('/broadcast', checkAuth, (req, res) => res.sendFile(path.join(__dirname, 'broadcast.html')));
@@ -450,6 +472,17 @@ app.get('/logs', checkAuth, (req, res) => res.sendFile(path.join(__dirname, 'log
 
 app.get('/api/status', (req, res) => res.json({ status: botStatus, connected: botStatus === "Online (Terhubung)", settings: getSettings() }));
 app.get('/api/keywords', checkAuth, (req, res) => res.json(getDB()));
+app.get('/api/owner-keywords', checkAuth, (req, res) => res.json(getOwnerDB()));
+
+app.get('/api/owner-keyword/:index', checkAuth, (req, res) => {
+    const db = getOwnerDB();
+    const keyword = db[req.params.index];
+    if (keyword) {
+        res.json(keyword);
+    } else {
+        res.status(404).json({ message: 'Keyword not found' });
+    }
+});
 
 app.get('/api/keyword/:index', checkAuth, (req, res) => {
     const db = getDB();
@@ -678,9 +711,22 @@ app.post('/api/broadcast', checkAuth, upload.single('image'), async (req, res) =
 
 app.post('/api/keywords', checkAuth, upload.single('image'), (req, res) => {
     const db = getDB();
-    db.push({ key: req.body.key.toLowerCase(), response: req.body.response, image: req.file ? req.file.path : null });
+    db.push({ 
+        key: req.body.key.toLowerCase(), 
+        response: req.body.response, 
+        image: req.file ? req.file.path : null,
+    });
     saveDB(db); res.redirect('/');
 });
+
+app.post('/api/owner-keywords', checkAuth, upload.single('image'), (req, res) => {
+    const db = getOwnerDB();
+    db.push({ 
+        key: req.body.key.toLowerCase(), 
+        response: req.body.response, 
+        image: req.file ? req.file.path : null
+    });
+    saveOwnerDB(db); res.redirect('/owner-keywords');});
 
 app.post('/api/keywords/edit/:index', checkAuth, upload.single('image'), (req, res) => {
     const db = getDB();
@@ -702,6 +748,25 @@ app.post('/api/keywords/edit/:index', checkAuth, upload.single('image'), (req, r
     res.redirect('/');
 });
 
+app.post('/api/owner-keywords/edit/:index', checkAuth, upload.single('image'), (req, res) => {
+    const db = getOwnerDB();
+    const index = req.params.index;
+    const keyword = db[index];
+
+    if (keyword) {
+        keyword.key = req.body.key.toLowerCase();
+        keyword.response = req.body.response;
+        if (req.file) {
+            if (keyword.image && fs.existsSync(keyword.image)) {
+                fs.removeSync(keyword.image);
+            }
+            keyword.image = req.file.path;
+        }
+        db[index] = keyword;
+        saveOwnerDB(db);
+    }
+    res.redirect('/owner-keywords');
+});
 app.get('/api/keywords/delete/:index', checkAuth, (req, res) => {
     const db = getDB();
     const toDelete = db[req.params.index];
@@ -710,6 +775,16 @@ app.get('/api/keywords/delete/:index', checkAuth, (req, res) => {
     }
     db.splice(req.params.index, 1);
     saveDB(db); res.redirect('/');
+});
+
+app.get('/api/owner-keywords/delete/:index', checkAuth, (req, res) => {
+    const db = getOwnerDB();
+    const toDelete = db[req.params.index];
+    if (toDelete?.image && fs.existsSync(toDelete.image)) {
+        fs.removeSync(toDelete.image);
+    }
+    db.splice(req.params.index, 1);
+    saveOwnerDB(db); res.redirect('/owner-keywords');
 });
 
 app.get('/start', checkAuth, (req, res) => { startBot(); res.redirect('/'); });
