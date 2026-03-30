@@ -1,0 +1,1145 @@
+[
+  {
+    "phoneNumber": "082313140307",
+    "sheetType": "TSEL_UPDATE",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-27T12:44:45.397Z"
+  },
+  {
+    "phoneNumber": "082323510290",
+    "sheetType": "TSEL_UPDATE",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-27T12:44:45.396Z"
+  },
+  {
+    "phoneNumber": "085293688723",
+    "sheetType": "TSEL_UPDATE",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-27T12:44:25.478Z"
+  },
+  {
+    "phoneNumber": "085293688723",
+    "sheetType": "TSEL_UPDATE",
+    "newExpDate": "02/04/2026",
+    "status": "Gagal (Error Simpan)",
+    "error": "Google API error - [403] The caller does not have permission",
+    "timestamp": "2026-03-27T12:39:54.869Z"
+  },
+  {
+    "status": "Error Server",
+    "message": "Kolom header \"Exp\" tidak ditemukan di sheet \"Tsel Update\".",
+    "sheetType": "TSEL_UPDATE",
+    "timestamp": "2026-03-27T12:39:40.136Z"
+  },
+  {
+    "phoneNumber": "082313140307",
+    "sheetType": "TSEL_UPDATE",
+    "newExpDate": "02/04/2026",
+    "status": "Gagal (Error Simpan)",
+    "error": "Google API error - [403] The caller does not have permission",
+    "timestamp": "2026-03-27T12:34:29.462Z"
+  },
+  {
+    "phoneNumber": "082323510290",
+    "sheetType": "TSEL_UPDATE",
+    "newExpDate": "02/04/2026",
+    "status": "Gagal (Error Simpan)",
+    "error": "Google API error - [403] The caller does not have permission",
+    "timestamp": "2026-03-27T12:34:29.460Z"
+  },
+  {
+    "phoneNumber": "085293688723",
+    "sheetType": "TSEL_UPDATE",
+    "newExpDate": "02/04/2026",
+    "status": "Gagal (Error Simpan)",
+    "error": "Google API error - [403] The caller does not have permission",
+    "timestamp": "2026-03-27T12:34:29.460Z"
+  },
+  {
+    "phoneNumber": "083197699831",
+    "sheetType": "AKRAB",
+    "newExpDate": "20/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-25T10:10:21.420Z"
+  },
+  {
+    "phoneNumber": "087739115796",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "24/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:52:10.680Z"
+  },
+  {
+    "phoneNumber": "087739115796",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "26/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:51:02.809Z"
+  },
+  {
+    "phoneNumber": "087738142235",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "27/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.269Z"
+  },
+  {
+    "phoneNumber": "087738147203",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "27/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.269Z"
+  },
+  {
+    "phoneNumber": "087849736378",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "26/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.268Z"
+  },
+  {
+    "phoneNumber": "087739115796",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "26/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.266Z"
+  },
+  {
+    "phoneNumber": "087849736410",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "20/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.265Z"
+  },
+  {
+    "phoneNumber": "087716739353",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.265Z"
+  },
+  {
+    "phoneNumber": "087716733318",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.264Z"
+  },
+  {
+    "phoneNumber": "087716733392",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.263Z"
+  },
+  {
+    "phoneNumber": "087738142202",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "14/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.262Z"
+  },
+  {
+    "phoneNumber": "087738142209",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.262Z"
+  },
+  {
+    "phoneNumber": "085939407995",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.261Z"
+  },
+  {
+    "phoneNumber": "087810151376",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "30/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.260Z"
+  },
+  {
+    "phoneNumber": "085947569863",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "29/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-23T15:48:17.259Z"
+  },
+  {
+    "phoneNumber": "087897973763",
+    "sheetType": "AKRAB",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-20T16:00:34.318Z"
+  },
+  {
+    "phoneNumber": "087817928480",
+    "sheetType": "AKRAB",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-20T16:00:34.315Z"
+  },
+  {
+    "phoneNumber": "085931547545",
+    "sheetType": "AKRAB",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-20T16:00:34.314Z"
+  },
+  {
+    "phoneNumber": "087897973763",
+    "sheetType": "AKRAB",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-20T15:59:35.190Z"
+  },
+  {
+    "phoneNumber": "087817928480",
+    "sheetType": "AKRAB",
+    "newExpDate": "17/04/2026",
+    "status": "Gagal (Tidak Ditemukan)",
+    "timestamp": "2026-03-20T15:59:35.186Z"
+  },
+  {
+    "phoneNumber": "085931547545",
+    "sheetType": "AKRAB",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-20T15:59:35.184Z"
+  },
+  {
+    "phoneNumber": "081991545307",
+    "sheetType": "AKRAB",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-20T13:42:36.722Z"
+  },
+  {
+    "phoneNumber": "087832565353",
+    "sheetType": "AKRAB",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-20T13:42:36.720Z"
+  },
+  {
+    "phoneNumber": "087734931722",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-20T03:44:55.117Z"
+  },
+  {
+    "phoneNumber": "087716739353",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "17/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:11:16.746Z"
+  },
+  {
+    "phoneNumber": "087716733318",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:11:16.746Z"
+  },
+  {
+    "phoneNumber": "087716733392",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:11:16.746Z"
+  },
+  {
+    "phoneNumber": "087738142202",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "14/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:11:16.745Z"
+  },
+  {
+    "phoneNumber": "087738142209",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:11:16.742Z"
+  },
+  {
+    "phoneNumber": "085939407995",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:11:16.740Z"
+  },
+  {
+    "phoneNumber": "087810151376",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "30/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:11:16.738Z"
+  },
+  {
+    "phoneNumber": "085947569863",
+    "sheetType": "MASTER_LIST",
+    "newExpDate": "29/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:11:16.736Z"
+  },
+  {
+    "phoneNumber": "087830894354",
+    "sheetType": "AKRAB",
+    "newExpDate": "26/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:01:12.398Z"
+  },
+  {
+    "phoneNumber": "081949497183",
+    "sheetType": "AKRAB",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:01:12.397Z"
+  },
+  {
+    "phoneNumber": "087716946296",
+    "sheetType": "AKRAB",
+    "newExpDate": "21/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:01:12.396Z"
+  },
+  {
+    "phoneNumber": "087826307899",
+    "sheetType": "AKRAB",
+    "newExpDate": "21/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:01:12.394Z"
+  },
+  {
+    "phoneNumber": "081912144988",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T05:01:12.393Z"
+  },
+  {
+    "phoneNumber": "087852283107",
+    "sheetType": "AKRAB",
+    "newExpDate": "23/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:48:32.912Z"
+  },
+  {
+    "phoneNumber": "087704757472",
+    "sheetType": "AKRAB",
+    "newExpDate": "30/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:48:32.911Z"
+  },
+  {
+    "phoneNumber": "081809730181",
+    "sheetType": "AKRAB",
+    "newExpDate": "01/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:48:32.910Z"
+  },
+  {
+    "phoneNumber": "087738751163",
+    "sheetType": "AKRAB",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:48:32.908Z"
+  },
+  {
+    "phoneNumber": "087892955261",
+    "sheetType": "AKRAB",
+    "newExpDate": "26/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:48:32.907Z"
+  },
+  {
+    "phoneNumber": "085956534488",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.399Z"
+  },
+  {
+    "phoneNumber": "087769683309",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.398Z"
+  },
+  {
+    "phoneNumber": "087875772920",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.398Z"
+  },
+  {
+    "phoneNumber": "087860920553",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.397Z"
+  },
+  {
+    "phoneNumber": "087715073108",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.397Z"
+  },
+  {
+    "phoneNumber": "087719668814",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.397Z"
+  },
+  {
+    "phoneNumber": "087716944981",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.397Z"
+  },
+  {
+    "phoneNumber": "081952098042",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.396Z"
+  },
+  {
+    "phoneNumber": "087758432921",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.396Z"
+  },
+  {
+    "phoneNumber": "087863563445",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.395Z"
+  },
+  {
+    "phoneNumber": "081917725127",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.394Z"
+  },
+  {
+    "phoneNumber": "085939642852",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.394Z"
+  },
+  {
+    "phoneNumber": "087866004720",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.393Z"
+  },
+  {
+    "phoneNumber": "087730643068",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.392Z"
+  },
+  {
+    "phoneNumber": "087864172670",
+    "sheetType": "AKRAB",
+    "newExpDate": "05/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.390Z"
+  },
+  {
+    "phoneNumber": "087716738752",
+    "sheetType": "AKRAB",
+    "newExpDate": "14/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:34:16.389Z"
+  },
+  {
+    "phoneNumber": "087814692991",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:18:57.325Z"
+  },
+  {
+    "phoneNumber": "081932962383",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:18:57.325Z"
+  },
+  {
+    "phoneNumber": "081946737644",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:18:57.304Z"
+  },
+  {
+    "phoneNumber": "087867018002",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:18:57.296Z"
+  },
+  {
+    "phoneNumber": "087854192600",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:18:57.294Z"
+  },
+  {
+    "phoneNumber": "081932962383",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.006Z"
+  },
+  {
+    "phoneNumber": "081946737644",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.006Z"
+  },
+  {
+    "phoneNumber": "087828619377",
+    "sheetType": "AKRAB",
+    "newExpDate": "06/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.005Z"
+  },
+  {
+    "phoneNumber": "087737444130",
+    "sheetType": "AKRAB",
+    "newExpDate": "08/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.005Z"
+  },
+  {
+    "phoneNumber": "085962846281",
+    "sheetType": "AKRAB",
+    "newExpDate": "14/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.005Z"
+  },
+  {
+    "phoneNumber": "087854197817",
+    "sheetType": "AKRAB",
+    "newExpDate": "10/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.005Z"
+  },
+  {
+    "phoneNumber": "085920134919",
+    "sheetType": "AKRAB",
+    "newExpDate": "10/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.005Z"
+  },
+  {
+    "phoneNumber": "081909118259",
+    "sheetType": "AKRAB",
+    "newExpDate": "10/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.004Z"
+  },
+  {
+    "phoneNumber": "087731937572",
+    "sheetType": "AKRAB",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.004Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "13/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.003Z"
+  },
+  {
+    "phoneNumber": "087712161027",
+    "sheetType": "AKRAB",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.003Z"
+  },
+  {
+    "phoneNumber": "085920134920",
+    "sheetType": "AKRAB",
+    "newExpDate": "03/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.002Z"
+  },
+  {
+    "phoneNumber": "085920134901",
+    "sheetType": "AKRAB",
+    "newExpDate": "03/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.001Z"
+  },
+  {
+    "phoneNumber": "081949918075",
+    "sheetType": "AKRAB",
+    "newExpDate": "03/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.001Z"
+  },
+  {
+    "phoneNumber": "087834686829",
+    "sheetType": "AKRAB",
+    "newExpDate": "03/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:40.000Z"
+  },
+  {
+    "phoneNumber": "085920064228",
+    "sheetType": "AKRAB",
+    "newExpDate": "03/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:39.999Z"
+  },
+  {
+    "phoneNumber": "085920135062",
+    "sheetType": "AKRAB",
+    "newExpDate": "01/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:39.998Z"
+  },
+  {
+    "phoneNumber": "087752824773",
+    "sheetType": "AKRAB",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:39.998Z"
+  },
+  {
+    "phoneNumber": "081917592119",
+    "sheetType": "AKRAB",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:39.996Z"
+  },
+  {
+    "phoneNumber": "081931311152",
+    "sheetType": "AKRAB",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:10:39.995Z"
+  },
+  {
+    "status": "Error Server",
+    "message": "Kolom header \"EXP\" tidak ditemukan di sheet \"Akrab List Update\".",
+    "sheetType": "AKRAB",
+    "timestamp": "2026-03-19T04:09:14.916Z"
+  },
+  {
+    "phoneNumber": "085920134906",
+    "sheetType": "AKRAB",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.435Z"
+  },
+  {
+    "phoneNumber": "087887350621",
+    "sheetType": "AKRAB",
+    "newExpDate": "02/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.435Z"
+  },
+  {
+    "phoneNumber": "083867741964",
+    "sheetType": "AKRAB",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.435Z"
+  },
+  {
+    "phoneNumber": "087889121680",
+    "sheetType": "AKRAB",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.435Z"
+  },
+  {
+    "phoneNumber": "087758431060",
+    "sheetType": "AKRAB",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.433Z"
+  },
+  {
+    "phoneNumber": "085936678650",
+    "sheetType": "AKRAB",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.432Z"
+  },
+  {
+    "phoneNumber": "085939407995",
+    "sheetType": "AKRAB",
+    "newExpDate": "31/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.431Z"
+  },
+  {
+    "phoneNumber": "087887352863",
+    "sheetType": "AKRAB",
+    "newExpDate": "28/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.431Z"
+  },
+  {
+    "phoneNumber": "081939731702",
+    "sheetType": "AKRAB",
+    "newExpDate": "30/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.430Z"
+  },
+  {
+    "phoneNumber": "085952778293",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.429Z"
+  },
+  {
+    "phoneNumber": "087813308079",
+    "sheetType": "AKRAB",
+    "newExpDate": "28/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T04:02:53.429Z"
+  },
+  {
+    "phoneNumber": "087758432921",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:55:56.266Z"
+  },
+  {
+    "phoneNumber": "087716944981",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.632Z"
+  },
+  {
+    "phoneNumber": "081952098042",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.631Z"
+  },
+  {
+    "phoneNumber": "085939642852",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.631Z"
+  },
+  {
+    "phoneNumber": "087866004720",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.630Z"
+  },
+  {
+    "phoneNumber": "087730643068",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.629Z"
+  },
+  {
+    "phoneNumber": "087863563445",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.629Z"
+  },
+  {
+    "phoneNumber": "087758432921",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.628Z"
+  },
+  {
+    "phoneNumber": "081917725127",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.627Z"
+  },
+  {
+    "phoneNumber": "087861436917",
+    "sheetType": "AKRAB",
+    "newExpDate": "14/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.627Z"
+  },
+  {
+    "phoneNumber": "087708771717",
+    "sheetType": "AKRAB",
+    "newExpDate": "14/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.626Z"
+  },
+  {
+    "phoneNumber": "087716733488",
+    "sheetType": "AKRAB",
+    "newExpDate": "13/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:54:14.624Z"
+  },
+  {
+    "phoneNumber": "085926900521",
+    "sheetType": "AKRAB",
+    "newExpDate": "13/04/2026",
+    "status": "Gagal (Tidak Ditemukan)",
+    "timestamp": "2026-03-19T03:54:14.623Z"
+  },
+  {
+    "phoneNumber": "085930456463",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.867Z"
+  },
+  {
+    "phoneNumber": "087716739040",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.865Z"
+  },
+  {
+    "phoneNumber": "085930433148",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.865Z"
+  },
+  {
+    "phoneNumber": "085956534488",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.864Z"
+  },
+  {
+    "phoneNumber": "087769683309",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.864Z"
+  },
+  {
+    "phoneNumber": "087875772920",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.863Z"
+  },
+  {
+    "phoneNumber": "087860920553",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.863Z"
+  },
+  {
+    "phoneNumber": "087715073108",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.861Z"
+  },
+  {
+    "phoneNumber": "087719668814",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:53:42.860Z"
+  },
+  {
+    "phoneNumber": "087875772920",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Gagal (Tidak Ditemukan)",
+    "timestamp": "2026-03-19T03:42:08.442Z"
+  },
+  {
+    "phoneNumber": "087860920553",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Gagal (Tidak Ditemukan)",
+    "timestamp": "2026-03-19T03:42:08.442Z"
+  },
+  {
+    "phoneNumber": "087715073108",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:42:08.439Z"
+  },
+  {
+    "phoneNumber": "087719668814",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:42:08.439Z"
+  },
+  {
+    "phoneNumber": "085939642852",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:41:50.232Z"
+  },
+  {
+    "phoneNumber": "081952098042",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.637Z"
+  },
+  {
+    "phoneNumber": "085939642852",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Gagal (Tidak Ditemukan)",
+    "timestamp": "2026-03-19T03:38:51.637Z"
+  },
+  {
+    "phoneNumber": "087866004720",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.637Z"
+  },
+  {
+    "phoneNumber": "087730643068",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.637Z"
+  },
+  {
+    "phoneNumber": "087863563445",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.636Z"
+  },
+  {
+    "phoneNumber": "087758432921",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.636Z"
+  },
+  {
+    "phoneNumber": "081917725127",
+    "sheetType": "AKRAB",
+    "newExpDate": "15/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.636Z"
+  },
+  {
+    "phoneNumber": "087861436917",
+    "sheetType": "AKRAB",
+    "newExpDate": "14/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.636Z"
+  },
+  {
+    "phoneNumber": "087708771717",
+    "sheetType": "AKRAB",
+    "newExpDate": "14/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.636Z"
+  },
+  {
+    "phoneNumber": "087716733488",
+    "sheetType": "AKRAB",
+    "newExpDate": "13/04/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-19T03:38:51.634Z"
+  },
+  {
+    "phoneNumber": "085926900521",
+    "sheetType": "AKRAB",
+    "newExpDate": "13/04/2026",
+    "status": "Gagal (Tidak Ditemukan)",
+    "timestamp": "2026-03-19T03:38:51.633Z"
+  },
+  {
+    "phoneNumber": "087752827216",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-18T17:20:44.657Z"
+  },
+  {
+    "phoneNumber": "087715766323",
+    "sheetType": "AKRAB",
+    "newExpDate": "27/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-18T17:20:44.654Z"
+  },
+  {
+    "phoneNumber": "087700247811",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-18T17:20:44.653Z"
+  },
+  {
+    "phoneNumber": "081991024454",
+    "sheetType": "AKRAB",
+    "newExpDate": "21/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-18T15:33:04.539Z"
+  },
+  {
+    "status": "Error Server",
+    "message": "Invalid sheet type specified.",
+    "sheetType": "AKRAB",
+    "timestamp": "2026-03-18T15:16:52.738Z"
+  },
+  {
+    "status": "Error Server",
+    "message": "Invalid sheet type specified.",
+    "sheetType": "AKRAB",
+    "timestamp": "2026-03-18T15:16:43.526Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "08/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-17T15:01:08.077Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "08/03/2026",
+    "status": "Gagal (Error Get Rows)",
+    "error": "Duplicate header detected: \"Nama\". Please make sure all non-empty headers are unique",
+    "timestamp": "2026-03-17T15:00:07.329Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "09/03/2026",
+    "status": "Gagal (Error Get Rows)",
+    "error": "Duplicate header detected: \"Nama\". Please make sure all non-empty headers are unique",
+    "timestamp": "2026-03-17T14:37:50.481Z"
+  },
+  {
+    "status": "Error Server",
+    "message": "phoneNumbers is not defined",
+    "sheetType": "AKRAB",
+    "timestamp": "2026-03-17T14:34:58.217Z"
+  },
+  {
+    "phoneNumber": "087739997059",
+    "sheetType": "AKRAB",
+    "newExpDate": "03/03/2026",
+    "status": "Gagal (Error Get Rows)",
+    "error": "Duplicate header detected: \"Nama\". Please make sure all non-empty headers are unique",
+    "timestamp": "2026-03-17T14:22:15.565Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "03/03/2026",
+    "status": "Berhasil",
+    "timestamp": "2026-03-17T14:19:46.717Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Gagal (Error Simpan)",
+    "error": "Google API error - [400] Requested writing within range [Akrab!A18:D18], but tried writing to column [E]",
+    "timestamp": "2026-03-17T14:16:36.477Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "23/03/2026",
+    "status": "Gagal (Error Simpan)",
+    "error": "Google API error - [400] Requested writing within range [Akrab!A18:D18], but tried writing to column [E]",
+    "timestamp": "2026-03-17T14:10:01.085Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Gagal (Error Simpan)",
+    "error": "Google API error - [400] Requested writing within range [Akrab!A18:D18], but tried writing to column [E]",
+    "timestamp": "2026-03-17T14:05:25.893Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Gagal (Error Simpan)",
+    "error": "Google API error - [400] Requested writing within range [Akrab!A18:D18], but tried writing to column [E]",
+    "timestamp": "2026-03-17T14:04:59.745Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Gagal (Tidak Ditemukan)",
+    "timestamp": "2026-03-17T11:30:12.225Z"
+  },
+  {
+    "phoneNumber": "087823515019",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Gagal (Error Get Rows)",
+    "error": "No values in the header row - fill the first row with header values before trying to interact with rows",
+    "timestamp": "2026-03-17T08:35:44.676Z"
+  },
+  {
+    "phoneNumber": "087700247811",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Gagal (Sheet Tidak Ditemukan)",
+    "error": "Sheet \"Akrab\" tidak ditemukan. Sheet yang tersedia: AKTIF, FILTER, BYU",
+    "timestamp": "2026-03-17T08:01:25.015Z"
+  },
+  {
+    "phoneNumber": "087700247811",
+    "sheetType": "AKRAB",
+    "newExpDate": "29/03/2026",
+    "status": "Gagal (Sheet Tidak Ditemukan)",
+    "error": "Sheet \"Akrab\" not found.",
+    "timestamp": "2026-03-17T07:50:42.161Z"
+  }
+]

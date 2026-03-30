@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reminder Settings - DW Cellkom</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #25D366; --google: #4285F4; --bg: #f3f4f6; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .card { background: white; width: 100%; max-width: 480px; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
+        .nav { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .nav a { text-decoration: none; font-weight: 700; color: #888; font-size: 14px; }
+        .nav a.active { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 13px; }
+        .box { background: #f9fafb; border: 1px solid #eee; padding: 15px; border-radius: 12px; text-align: left; margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #555; }
+        input[type="time"] { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: inherit; }
+        .btn { width: 100%; padding: 12px; color: white; border-radius: 10px; font-weight: 700; cursor: pointer; border: none; font-size: 16px; background: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>DW Cellkom</h2>
+        <div class="nav">
+            <a href="/">Auto Reply</a>
+            <a href="/reminder" class="active">Reminder</a>
+            <a href="/update">Update Data</a>
+            <a href="/broadcast">Broadcast</a>
+            <a href="/logs">Log Aktivitas</a>
+        </div>
+
+        <form action="/api/settings/reminder" method="POST">
+            <div class="box">
+                <h3 style="margin:0 0 10px 0; color: #3b82f6; font-size: 16px;">📋 Master List Update</h3>
+                <label>Jam Kirim Laporan:</label>
+                <input type="time" name="timeMasterList" id="timeMasterList" required>
+            </div>
+
+            <div class="box">
+                <h3 style="margin:0 0 10px 0; color: #f6993f; font-size: 16px;">📶 XL (Akrab List Update)</h3>
+                <label>Jam Kirim Laporan:</label>
+                <input type="time" name="timeXL" id="timeXL" required>
+            </div>
+
+            <div class="box">
+                <h3 style="margin:0 0 10px 0; color: var(--google); font-size: 16px;">📶 Telkomsel (Tsel Update)</h3>
+                <label>Jam Kirim Laporan:</label>
+                <input type="time" name="timeTsel" id="timeTsel" required>
+            </div>
+
+            <button type="submit" class="btn">SIMPAN JADWAL</button>
+        </form>
+
+        <div class="box" style="margin-top: 20px; background: #fff;">
+            <button onclick="cekSatuGrup()" class="btn" style="background: #6b7280; font-size: 12px;">CEK DATA SEMUA PROVIDER SEKARANG</button>
+            <div id="res" style="margin-top:10px; font-size:12px; max-height: 150px; overflow-y: auto;"></div>
+        </div>
+    </div>
+
+    <script>
+        fetch('/api/status').then(r => r.json()).then(data => {
+            document.getElementById('timeMasterList').value = data.settings.timeMasterList; // Set nilai untuk Master List
+            document.getElementById('timeXL').value = data.settings.timeXL;
+            document.getElementById('timeTsel').value = data.settings.timeTsel;
+        });
+
+        async function cekSatuGrup() {
+            const div = document.getElementById('res');
+            div.innerHTML = "Scanning...";
+            const data = await fetch('/api/check-now').then(r => r.json());
+            if(data.length > 0) {
+                div.innerHTML = data.map(i => `• [${i.provider}] ${i.nama} (${i.ket})`).join('<br>');
+            } else { div.innerHTML = "✅ Tidak ada data kadaluarsa hari ini."; }
+        }
+    </script>
+</body>
+</html>

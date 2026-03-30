@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log Aktivitas - DW Cellkom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #25D366; --danger: #ef4444; --bg: #f3f4f6; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .card { background: white; width: 100%; max-width: 700px; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
+        .nav { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .nav a { text-decoration: none; font-weight: 700; color: #888; font-size: 14px; }
+        .nav a.active { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 13px; }
+        h3 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; font-size: 12px; }
+        th, td { padding: 8px 12px; border: 1px solid #eee; text-align: left; }
+        th { background-color: #f9fafb; font-weight: 600; }
+        .status-berhasil { color: #10b981; font-weight: bold; }
+        .status-gagal { color: #ef4444; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>DW Cellkom</h2>
+        <div class="nav">
+            <a href="/">Auto Reply</a>
+            <a href="/reminder">Reminder</a>
+            <a href="/update">Update Data</a>
+            <a href="/broadcast">Broadcast</a>
+            <a href="/logs" class="active">Log Aktivitas</a>
+        </div>
+
+        <div class="log-container" style="text-align: left;">
+            <h3>Log Update Data (500 Terbaru)</h3>
+            <div id="log-table-container" style="max-height: 60vh; overflow-y: auto;">
+                <table id="log-table">
+                    <thead>
+                        <tr>
+                            <th>Waktu</th>
+                            <th>Tipe</th>
+                            <th>Detail</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data akan dimasukkan di sini oleh script -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadLogs() {
+            const response = await fetch('/api/logs');
+            const logs = await response.json();
+            const tbody = document.querySelector('#log-table tbody');
+            tbody.innerHTML = '<tr><td colspan="4" style="text-align: center;">Memuat...</td></tr>';
+
+            if (logs.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center;">Belum ada aktivitas.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = logs.map(log => {
+                const formattedTime = new Date(log.timestamp).toLocaleString('id-ID', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
+                let typeCell, detailCell, statusCell;
+
+                if (log.type === 'broadcast') {
+                    typeCell = 'Broadcast';
+                    if (log.status === 'Error Server') {
+                        detailCell = log.message;
+                        statusCell = `<span class="status-gagal">Error Server</span>`;
+                    } else {
+                        detailCell = `Pesan: <i>${log.message || ''}</i><br>Total Target: ${log.total || 0} nomor`;
+                        statusCell = `<span class="status-berhasil">Berhasil: ${log.success || 0}</span><br><span class="status-gagal">Gagal: ${log.failed || 0}</span>`;
+                    }
+                } else { // Handles 'update' type and old logs without a type
+                    typeCell = 'Update Data';
+                    detailCell = `Nomor: ${log.phoneNumber || '-'}<br>Sheet: ${log.sheetType || '-'}<br>Exp Baru: ${log.newExpDate || '-'}`;
+                    const statusClass = log.status && log.status.startsWith('Berhasil') ? 'status-berhasil' : 'status-gagal';
+                    statusCell = `<span class="${statusClass}">${log.status}</span>`;
+                }
+                return `<tr><td>${formattedTime}</td><td>${typeCell}</td><td>${detailCell}</td><td>${statusCell}</td></tr>`;
+            }).join('');
+        }
+        loadLogs();
+    </script>
+</body>
+</html>

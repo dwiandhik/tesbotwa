@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadcast - DW Cellkom</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        :root { --primary: #25D366; --danger: #ef4444; --bg: #f3f4f6; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg); display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .card { background: white; width: 100%; max-width: 500px; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); text-align: center; }
+        .nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 20px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .nav a { text-decoration: none; font-weight: 700; color: #888; font-size: 14px; }
+        .nav a.active { color: var(--primary); border-bottom: 2px solid var(--primary); padding-bottom: 13px; }
+        
+        .form-container { text-align: left; margin-top: 25px; }
+        h3 { color: #333; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; color: #555; }
+        textarea, input, select { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        button { background-color: var(--primary); color: white; padding: 12px 15px; border: none; border-radius: 10px; cursor: pointer; font-size: 16px; width: 100%; font-weight: 700; }
+        button:disabled { background-color: #999; cursor: not-allowed; }
+        .message { margin-top: 20px; padding: 10px; border-radius: 8px; text-align: left; font-size: 14px; background-color: #e9ecef; border: 1px solid #dee2e6; max-height: 200px; overflow-y: auto; white-space: pre-wrap; word-wrap: break-word; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h2>DW Cellkom</h2>
+        <div class="nav">
+            <a href="/">Auto Reply</a>
+            <a href="/reminder">Reminder</a>
+            <a href="/update">Update Data</a>
+            <a href="/broadcast" class="active">Broadcast</a>
+            <a href="/logs">Log Aktivitas</a>
+        </div>
+
+        <div class="form-container">
+            <h3>Kirim Pesan Broadcast</h3>
+            <form id="broadcastForm">
+                <label for="message">Isi Pesan:</label>
+                <textarea id="message" name="message" rows="5" required placeholder="Ketik pesan yang akan dikirim..."></textarea>
+
+                <label for="sendToNewOnly" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <input type="checkbox" id="sendToNewOnly" name="sendToNewOnly" style="width: auto; margin-right: 10px; margin-bottom: 0;"> Kirim hanya ke nomor yang belum pernah dihubungi sebelumnya
+                </label>
+                <label for="image">Gambar (opsional):</label>
+                <input type="file" id="image" name="image" accept="image/*" style="margin-bottom: 15px;">
+
+                <label for="targets">Target Penerima (Ambil dari Sheet):</label>
+                <select id="targets" name="targets">
+                    <option value="manual">Tidak, Hanya Nomor Manual</option>
+                    <option value="MASTER_LIST">Semua di Master List Update</option>
+                    <option value="AKRAB">Semua di Akrab List Update</option>
+                    <option value="TSEL_UPDATE">Semua di Telkomsel (Tsel Update)</option>
+                </select>
+
+                <label for="manualNumbers">Nomor Manual (opsional, satu per baris):</label>
+                <textarea id="manualNumbers" name="manualNumbers" rows="4" placeholder="081234567890&#10;089876543210"></textarea>
+
+                <label for="delay">Jeda Antar Pesan (detik):</label>
+                <input type="number" id="delay" name="delay" value="5" min="1" required>
+
+                <button type="submit">KIRIM BROADCAST</button>
+                <button type="button" id="cancelBroadcastBtn" class="btn" style="background: #6b7280; margin-top: 10px; display: none;">BATALKAN BROADCAST</button>
+            </form>
+            <div id="progress" class="message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const broadcastForm = document.getElementById('broadcastForm');
+            const submitButton = broadcastForm.querySelector('button[type="submit"]');
+            const cancelBroadcastBtn = document.getElementById('cancelBroadcastBtn');
+            const progressDiv = document.getElementById('progress');
+
+            const socket = io();
+            let socketId = null;
+
+            socket.on('connect', () => { socketId = socket.id; });
+            socket.on('disconnect', () => { socketId = null; });
+
+            socket.on('broadcast_progress', (data) => {
+                progressDiv.style.display = 'block';
+                progressDiv.innerHTML += data.message + '\n';
+                progressDiv.scrollTop = progressDiv.scrollHeight; // Auto-scroll to bottom
+            });
+
+            socket.on('broadcast_complete', (data) => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'KIRIM BROADCAST';
+                cancelBroadcastBtn.style.display = 'none';
+                progressDiv.innerHTML += `\n<b>${data.message}</b>`;
+                progressDiv.scrollTop = progressDiv.scrollHeight;
+            });
+
+            socket.on('broadcast_cancelled', (data) => {
+                submitButton.disabled = false;
+                submitButton.textContent = 'KIRIM BROADCAST';
+                cancelBroadcastBtn.style.display = 'none';
+                progressDiv.innerHTML += `\n<b>${data.message}</b>`;
+                progressDiv.scrollTop = progressDiv.scrollHeight;
+            });
+
+            broadcastForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+
+                if (!socketId) {
+                    progressDiv.style.display = 'block';
+                    progressDiv.innerHTML = '<b>Error:</b> Koneksi ke server belum siap. Mohon tunggu dan coba lagi.';
+                    return;
+                }
+
+                const formData = new FormData(broadcastForm); // Ini akan secara otomatis menyertakan file
+                formData.append('socketId', socketId);
+                // Tambahkan nilai checkbox secara manual
+                const sendToNewOnlyCheckbox = document.getElementById('sendToNewOnly');
+                if (sendToNewOnlyCheckbox) { // Pastikan checkbox ada
+                    formData.append('sendToNewOnly', sendToNewOnlyCheckbox.checked);
+                }
+
+                // Hapus atribut 'required' dari textarea jika ada gambar
+                if (formData.get('image') && formData.get('image').size > 0) {
+                    document.getElementById('message').removeAttribute('required');
+                }
+
+                if (!formData.get('message') && !formData.get('image')) { alert('Pesan atau Gambar tidak boleh kosong.'); return; }
+
+                progressDiv.style.display = 'block';
+                progressDiv.innerHTML = 'Memulai proses broadcast...\n';
+                progressDiv.className = 'message';
+                submitButton.disabled = true;
+                submitButton.textContent = 'MENGIRIM...';
+                cancelBroadcastBtn.style.display = 'block'; // Tampilkan tombol batal
+
+                fetch('/api/broadcast', { method: 'POST', body: formData }) // Kirim FormData langsung
+                    .catch(error => {
+                        progressDiv.innerHTML = `<b>Error:</b> ${error.message || 'Gagal terhubung ke server.'}`;
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'KIRIM BROADCAST';
+                        cancelBroadcastBtn.style.display = 'none';
+                    });
+            });
+
+            cancelBroadcastBtn.addEventListener('click', async function() {
+                if (!socketId) {
+                    progressDiv.innerHTML = '<b>Error:</b> Koneksi ke server belum siap. Tidak bisa membatalkan.';
+                    return;
+                }
+                cancelBroadcastBtn.disabled = true; // Disable cancel button to prevent multiple clicks
+                progressDiv.innerHTML += '\nMengirim permintaan pembatalan...';
+                fetch('/api/broadcast/cancel', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ socketId })
+                })
+                    .catch(error => {
+                        progressDiv.innerHTML += `\n<b>Error pembatalan:</b> ${error.message || 'Gagal terhubung ke server.'}`;
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
