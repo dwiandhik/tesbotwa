@@ -1,4 +1,4 @@
-const { //aa
+const { 
     default: makeWASocket, 
     useMultiFileAuthState, 
     DisconnectReason,
@@ -29,6 +29,7 @@ const port = 3777;
 const ADMIN_USER = "admin";
 const ADMIN_PASS = "admin123"; 
 const OWNER_NUMBER = "6285293958886"; // Ganti dengan nomor WhatsApp Anda (format 62, tanpa + atau spasi)
+const NORMALIZED_OWNER_JID = jidNormalizedUser(OWNER_NUMBER + '@s.whatsapp.net');
 const ID_GRUP_REMINDER = "120363405900078596@g.us"; 
 
 const SPREADSHEET_ID_1 = '1ydTqcG1Vg9EZFJ2boOjCekL2Xw4RYOe-haHCXxgmlX0'; // XL
