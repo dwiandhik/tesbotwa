@@ -393,7 +393,7 @@ async function startBot() {
         const from = jidNormalizedUser(msg.key.remoteJid);
         if (from.endsWith('@g.us')) return; // Abaikan pesan dari grup untuk auto-reply
 
-        const isFromOwner = from.startsWith(OWNER_NUMBER);
+        const isFromOwner = from === NORMALIZED_OWNER_JID;
         const text = (msg.message.conversation || msg.message.extendedTextMessage?.text || "").toLowerCase().trim();
         const userWords = text.split(/\s+/);
 
