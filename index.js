@@ -1,4 +1,4 @@
-const { 
+const { // Update terakhir: 30 Maret 2026
     default: makeWASocket, 
     useMultiFileAuthState, 
     DisconnectReason,
