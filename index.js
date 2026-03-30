@@ -1,4 +1,4 @@
-const { 
+const { //aa
     default: makeWASocket, 
     useMultiFileAuthState, 
     DisconnectReason,
@@ -396,6 +396,10 @@ async function startBot() {
         const text = (msg.message.conversation || msg.message.extendedTextMessage?.text || "").toLowerCase().trim();
         const userWords = text.split(/\s+/);
 
+        console.log(`[Pesan Masuk] Dari: ${from}, Apakah Owner: ${isFromOwner}, Teks: "${text}"`);
+        console.log(`[Pesan Masuk] Kata-kata di pesan: ${JSON.stringify(userWords)}`);
+
+
         if (text === '.cek') {
             if (!isFromOwner) return;
             const d0 = await scanProvider(SPREADSHEET_ID_1, 'Master List Update', 'Master List', 'EXP');
@@ -414,14 +418,19 @@ async function startBot() {
         // 1. Cari di database publik
         findKey = getDB().find(item => {
             const keywords = item.key.split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
-            return keywords.some(kw => userWords.includes(kw));
+            const match = keywords.some(kw => userWords.includes(kw));
+            if (match) console.log(`[Pencarian] Cocok di DB Publik dengan kata kunci: "${item.key}"`);
+            return match;
         });
 
         // 2. Jika tidak ketemu dan pengirim adalah owner, cari di database owner
         if (!findKey && isFromOwner) {
+            console.log('[Pencarian] Tidak cocok di DB Publik, mencoba DB Owner...');
             findKey = getOwnerDB().find(item => {
                 const keywords = item.key.split(',').map(k => k.trim().toLowerCase()).filter(Boolean);
-                return keywords.some(kw => userWords.includes(kw));
+                const match = keywords.some(kw => userWords.includes(kw));
+                if (match) console.log(`[Pencarian] Cocok di DB Owner dengan kata kunci: "${item.key}"`);
+                return match;
             });
         }
 
@@ -429,6 +438,7 @@ async function startBot() {
             const now = Date.now();
             if (cooldowns.has(from) && (now < cooldowns.get(from) + 3000)) return;
             cooldowns.set(from, now);
+            console.log(`[Balasan] Mengirim balasan untuk kata kunci: "${findKey.key}"`);
             if (findKey.image && fs.existsSync(findKey.image)) {
                 await botSock.sendMessage(from, { image: { url: findKey.image }, caption: findKey.response });
             } else { await botSock.sendMessage(from, { text: findKey.response }); }
