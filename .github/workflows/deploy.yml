@@ -28,4 +28,4 @@ jobs:
           npm install --production
           
           # Restart proses PM2 spesifik kamu
-          pm2 restart botwapanelweb
+          sudo pm2 restart botwapanelweb || sudo pm2 start index.js --name botwapanelweb
