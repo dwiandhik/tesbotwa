@@ -632,9 +632,12 @@ app.post('/api/broadcast', checkAuth, upload.single('image'), async (req, res) =
             let uniqueNumbers = [...new Set(targetNumbers)];
 
             // 4. Filter for new numbers if sendToNewOnly is true
+            // Normalize all numbers first before filtering and sending
+            uniqueNumbers = uniqueNumbers.map(normalizePhoneNumber);
+
             if (sendToNewOnly === 'true') {
                 io.to(socketId).emit('broadcast_progress', { message: `Memfilter nomor yang belum pernah dihubungi...` });
-                uniqueNumbers = uniqueNumbers.filter(num => !broadcastHistory.has(num.replace(/\D/g, '')));
+                uniqueNumbers = uniqueNumbers.filter(num => !broadcastHistory.has(num));
             }
 
             if (uniqueNumbers.length === 0) {
@@ -655,7 +658,7 @@ app.post('/api/broadcast', checkAuth, upload.single('image'), async (req, res) =
 
             for (let i = 0; i < uniqueNumbers.length; i++) {
                 const number = uniqueNumbers[i];
-                const jid = `${number.replace(/\D/g, '')}@s.whatsapp.net`;
+                const jid = `${number}@s.whatsapp.net`; // Use the already normalized number
                 let result;
 
                 try {
@@ -693,7 +696,7 @@ app.post('/api/broadcast', checkAuth, upload.single('image'), async (req, res) =
 
                 // Add successfully sent numbers to history
                 if (result?.exists) {
-                    broadcastHistory.add(number.replace(/\D/g, ''));
+                    broadcastHistory.add(number); // Add the normalized number to history
                     saveBroadcastHistory([...broadcastHistory]);
                 }
             }
