@@ -104,6 +104,16 @@ const serviceAccountAuth = new JWT({
     scopes: ['https://www.googleapis.com/auth/spreadsheets'],
 });
 
+// Helper to normalize phone numbers
+function normalizePhoneNumber(number) {
+    if (!number) return '';
+    let normalized = number.toString().replace(/\D/g, ''); // Hapus semua karakter non-angka
+    if (normalized.startsWith('0')) {
+        normalized = '62' + normalized.substring(1); // Ganti awalan 0 dengan 62
+    }
+    return normalized;
+}
+
 // Helper to parse various date formats from sheets
 function parseSheetDate(dateString) {
     if (!dateString || typeof dateString !== 'string') return null;
@@ -622,7 +632,7 @@ app.post('/api/broadcast', checkAuth, upload.single('image'), async (req, res) =
             }
 
             // 2. Get numbers from Google Sheet if a target is selected
-            if (target !== 'manual') {
+            if (target && target !== 'manual') {
                 io.to(socketId).emit('broadcast_progress', { message: `Mengambil nomor dari sheet "${sheetUpdateConfig[target]?.label || target}"...` });
                 const sheetNumbers = await getNumbersFromSheet(target);
                 targetNumbers.push(...sheetNumbers);
